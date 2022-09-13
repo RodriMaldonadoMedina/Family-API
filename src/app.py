@@ -35,6 +35,12 @@ member3 = {
     "lucky_numbers": [1]
 }
 
+#############################################################################
+
+#    NO SE PORQUE NO ME PASA LOS TEST, NO VEO LO QUE ESTOY HACIENDO MAL     #
+
+#############################################################################
+
 jackson_family.add_member(member1)
 jackson_family.add_member(member2)
 jackson_family.add_member(member3)
@@ -69,9 +75,9 @@ def post_member():
     jackson_family.add_member(member)
     return jsonify(member),200
 
-@app.route('/member/<int:member_id>', methods=['DELETE'])
-def delete_member(member_id):
-    member = jackson_family.get_member(member_id)
+@app.route('/member/<int:id>', methods=['DELETE'])
+def delete_member(id):
+    member = jackson_family.get_member(id)
     if not member:
         return jsonify({"done":False}),400
     return jsonify({"done":True}),200
